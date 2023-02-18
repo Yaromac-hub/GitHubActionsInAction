@@ -1,0 +1,12 @@
+schemaVersion: '2.0.0'
+fileExistenceTests:
+  - name: 'Check build folder'
+    path: '/www/build'
+    shouldExist: true
+    uid: 0
+    gid: 0
+    isExecutableBy: 'group'
+fileContentTests:
+  - name: 'Check nginx config'
+    path: '/etc/nginx/conf.d/nginx.conf'
+    expectedContents: ['.*81.*']

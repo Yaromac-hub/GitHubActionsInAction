@@ -1,0 +1,9 @@
+container-structure-test test --image {{ docker_image }} --config {{ test_file }}
+    if $?
+    then
+      echo "Test Failed"
+      exit 1
+    else
+      echo "Test Succeeded"
+      exit 0
+    fi
