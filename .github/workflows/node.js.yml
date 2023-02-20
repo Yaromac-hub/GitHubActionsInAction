@@ -31,3 +31,4 @@ jobs:
     - run: npm install --global vitest
     - run: yarn --frozen-lockfile --silent
     - run: yarn test
+    - run: yarn lint
