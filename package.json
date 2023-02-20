@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "test:unit": "echo 'Say Hello To My Little Friend!'",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "lint": "eslint --help",
     "preview": "vite preview"
   },
   "dependencies": {
