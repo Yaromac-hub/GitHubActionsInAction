@@ -1,11 +1,18 @@
 name: Docker Image CI
 
-on:
-  workflow_run:
-    workflows: ["Node.js CI"]
-    types: [requested]
+#on:
+  #workflow_run:
+   # workflows: ["Node.js CI"]
+    #types: [requested]
     #branches:
     #  - 'dockerize'
+
+
+on:
+  push:
+    branches: [ "test", "dockerize" ]
+  pull_request:
+    branches: [ "test", "dockerize" ]
 
 jobs:
   on-success-wfcs-sdfsdfv-sfdvsdfv:
