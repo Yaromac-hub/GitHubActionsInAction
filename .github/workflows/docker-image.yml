@@ -4,6 +4,8 @@ on:
   workflow_run:
     workflows: [Node.js CI]
     types: [requested]
+    branches: 
+    - dockerize
 
 jobs:
   on-success-wfcs-sdfsdfv-sfdvsdfv:
