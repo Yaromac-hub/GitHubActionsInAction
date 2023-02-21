@@ -9,7 +9,8 @@ on:
 jobs:
   echo_conclusions:
     runs-on: ubuntu-latest
-    run: echo ${{ github.event.workflow_run.conclusion }}
+    steps:
+      - run: echo ${{ github.event.workflow_run.conclusion }}
   on-success-wfcs-sdfsdfv-sfdvsdfv:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
