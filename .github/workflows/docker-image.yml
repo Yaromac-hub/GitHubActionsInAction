@@ -3,11 +3,13 @@ name: Docker Image CI
 on:
   workflow_run:
     workflows: [Node.js CI]
-    types: [requested]
-    branches: 
-    - dockerize
+    types: [completed]
+    branches: [dockerize]
 
 jobs:
+  echo_conclusions:
+    runs-on: ubuntu-latest
+    run: echo ${{ github.event.workflow_run.conclusion }}
   on-success-wfcs-sdfsdfv-sfdvsdfv:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
