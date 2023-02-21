@@ -2,8 +2,8 @@ name: Docker Image CI
 
 on:
   workflow_run:
-    workflows: [Node.js CI]
-    types: [completed]
+    workflows: ["Node.js CI"]
+    types: [requested]
     #branches:
     #  - 'dockerize'
 
