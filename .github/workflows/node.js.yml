@@ -8,6 +8,7 @@ on:
     branches: [ "test", "dockerize" ]
   pull_request:
     branches: [ "test", "dockerize" ]
+  workflow_call:
 
 jobs:
   build:
