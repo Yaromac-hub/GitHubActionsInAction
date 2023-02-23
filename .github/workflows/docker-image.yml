@@ -1,25 +1,18 @@
 name: Docker Image CI
 
 on:
-  workflow_run:
-    workflows: [Node.js CI]
-    types: [completed]
-    branches: [dockerize]
+  push:
+    branches: [ "dockerize" ]
+  pull_request:
+    branches: [ "dockerize" ]
 
 jobs:
-  echo_conclusions:
+  call-workflow-2-in-local-repo:
+    uses: ./.github/workflows/node.js.yml
+  on-success:
+    needs: call-workflow-2-in-local-repo
     runs-on: ubuntu-latest
-    steps:
-      - run: echo $github.event.workflow_run.conclusion
-  on-success-wfcs-sdfsdfv-sfdvsdfv:
-    runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-  on-failure:
-    runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
-    steps:
-      - run: echo 'The triggering workflow failed'
