@@ -31,7 +31,7 @@ jobs:
         ssh-keyscan -H github.com >> /home/runner/.ssh/known_hosts
         echo "${{ secrets.SSH_PRIVATE_KEY }}" | base64 --decode > /home/runner/.ssh/id_rsa
         chmod 600 /home/runner/.ssh/id_rsa 
-        ssh-agent -a $SSH_AUTH_SOCK > /dev/null  
+        eval "$(ssh-agent -s)"
         ssh-add /home/runner/.ssh/id_rsa 
 
     - name: Use Node.js ${{ matrix.node-version }}
