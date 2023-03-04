@@ -22,6 +22,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
+    - name: Add SSH key
+      env:
+        SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+      run: |
+        mkdir -p /home/runner/.ssh 
+        RUN ssh-keyscan -H github.com >> /home/runner/.ssh/known_hosts
+        echo "${{ secrets.SERVICE_ACCOUNT_PRV_KEY }}" > /home/runner/.ssh/id_rsa
+        chmod 600 /home/runner/.ssh/id_rsa 
+        eval "$(ssh-agent -s)"
+        ssh-add /home/runner/.ssh/id_rsa 
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
