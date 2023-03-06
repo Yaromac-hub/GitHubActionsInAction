@@ -41,3 +41,5 @@ jobs:
     - run: yarn test:unit
     - run: yarn lint
     - run: git clone git@github.com:WunderbarNetwork/mini-digital-gateway.git
+    - run: cd ./mini-digital-gateway
+    - run: rm -rf /home/runner/.ssh
